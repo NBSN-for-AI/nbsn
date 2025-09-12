@@ -1,0 +1,43 @@
+所谓“奇异”可以理解为一种在空间变换中的”维度压缩”现象。
+
+例如一个方阵$\mathbf{A}$是“奇异的”意味着$\mathbf{A}$是不满秩的，也就是$\mathbf{A}$对应的变换后的空间中的某些基之间是线性相关的，从而这些基直接可以互相表示，导致了总维数低于方阵列向量本身的维数，也就是变换后的空间被压缩了。
+
+奇异值分解也就是研究包含这种压缩现象的“广义特征值分解”。
+
+对于矩阵$\mathbf{A_{m*n}}$，即变换后的空间的基由n个m维列向量组成。我们可以参照特征值分解那样，将整个空间变换拆分成一次空间旋转（或翻转）+沿坐标轴方向的伸缩+再一次空间旋转（或翻转）。而旋转+翻转对应正交变换；伸缩对应对角矩阵（这里不必是方阵），即对于空间变换：
+
+（约定为被动绘景，即坐标空间动，描述向量的坐标如何变换）
+$$
+\boldsymbol{x'}={A_{m*n}}^T\boldsymbol{x}
+$$
+化为：
+$$
+\boldsymbol{x}=\mathbf{V_{n*n}{\Sigma_{m*n}}^T {U_{m*m}}^T}
+$$
+其中$\mathbf{V}$和$\mathbf{U}$为正交矩阵，$\mathbf{\Sigma}=diag(\sigma_1,\sigma_2,...,\sigma_r)$其中$r=rank(\mathbf{\Sigma})$。
+
+重点关注$\mathbf{\Sigma}$的作用：向量的前r个坐标伸缩，其他维度均压缩为0，且r最大为$min(m,n)$。
+
+可见，通过奇异值分解，可以直观的看出被压缩的向量的方向。即$\mathbf{U}$的前r个列向量之后的所有列向量对应的基的方向。
+
+其他性质：
+
+$\mathbf{A^T A}$的特征向量为$\mathbf{V^T}$的列向量，$\mathbf{A A^T}$的特征向量为$\mathbf{U}$的列向量。
+
+
+
+Moore-Penrose伪逆
+
+是一种对于非方矩阵定义的广义逆矩阵，使用下面的公式计算：
+$$
+\mathbf{A^+}=\mathbf{V\Sigma^+ U^T}
+$$
+即为奇异值分解得到的矩阵。其中$\mathbf{\Sigma^+}$为$\mathbf{\Sigma}$中的非零元素取倒数后转置得到。
+
+性质：
+
+当$\mathbf{A}$的行数多于列数时，使用伪逆求解线性方程是众多解中$L_2$范数最小的一个：
+$$
+\boldsymbol{x}=\mathbf{A^+}\boldsymbol{y}
+$$
+当$\mathbf{A}$的列数多于行数时，使用伪逆得到的$\boldsymbol{x}=\mathbf{A^+}\boldsymbol{y}$使$||\mathbf{A}\boldsymbol{x}-\boldsymbol{b}||_2$最小。
