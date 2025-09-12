@@ -6,6 +6,8 @@
 $$
 Z_{m*l}=X_{m*n}D_{n*l}
 $$
+
+
 D的列向量为编码后空间的基，规定D的列向量正交归一，即： $D^TD=I_l$ 
 
 那么Z在原空间中坐标，即重构后的向量为：
@@ -14,8 +16,9 @@ D的列向量为编码后空间的基，规定D的列向量正交归一，即：
 $$
 X'=ZD^T=XDD^T
 $$
-用Frobenius范数来衡量编码前后向量的距离，我们要优化D使这个距离最小：
 
+
+用Frobenius范数来衡量编码前后向量的距离，我们要优化D使这个距离最小：
 
 $$
 D^*=\arg\min_D ||X-XDD^T||_F^2
@@ -29,20 +32,23 @@ $$
 =\arg\min_D Tr(X^TX-DD^TX^TX-X^TXDD^T+DD^TX^TXDD^T)
 $$
 
-由于迹运算循环对称：
 
+
+由于迹运算循环对称：
 
 $$
 D^*=\arg\min_D Tr(X^TX-2D^TX^TXD+D^TDD^TX^TXD)
 $$
-由于 $D^TD=I_l$ ：
 
+
+由于 $D^TD=I_l$ ：
 
 $$
 D^*=\arg\min_D Tr(X^TX-D^TX^TXD)
 $$
-由于只含X的项与D无关，不影响argmin的结果：
 
+
+由于只含X的项与D无关，不影响argmin的结果：
 
 $$
 D^*=\arg\min_D Tr(-D^TX^TXD)
@@ -51,6 +57,8 @@ $$
 $$
 =\arg\max_D Tr(D^TX^TXD)
 $$
+
+
 
 这个问题的结果可以通过对 $X^TX$ 特征分解得到。想象l=1的情况，使得 $d^TX^TXd$ 最大的d应当是 $X^TX$ 最大特征值对应的特征向量方向。拓展到l维，可以证明，D由 $X^TX$ 的前l个最大特征值对应的特征向量组成，也就是X的右奇异矩阵的前l列。
 
@@ -62,12 +70,15 @@ $$
 $$
 D^*=\arg\max_D Tr(D^TX^TXD)
 $$
-即：
 
+
+即：
 
 $$
 D^*=\arg\max_D Tr(Z^TZ)
 $$
+
+
  即主成分分析是在优化数据在新空间的轴上的方差最大。这意味着最大方差方向总是与新空间的轴对齐，也就是说Z的协方差矩阵 $Z^TZ$ 应是对角的，这也说明投影后的特征之间彼此没有线性相关的表示。
 
 ![image-20250912092113955](./image-20250912092113955.png)
@@ -83,18 +94,22 @@ $$
 =\frac{1}{m-1}D^TX^TXD
 $$
 
-将X奇异值分解： $X_{m* n}=U_{m* m}\Sigma_{m* n} V^T_{n* n}$ 
 
+
+将X奇异值分解： $X_{m* n}=U_{m* m}\Sigma_{m* n} V^T_{n* n}$ 
 
 $$
 Var[z]=\frac{1}{m-1}D^TV\Sigma^T U^TU\Sigma V^T D
 $$
-其中 $U^TU=I_m$ ；由于D是V的前l列，所以 $D^TV=I_l$ ：
 
+
+其中 $U^TU=I_m$ ；由于D是V的前l列，所以 $D^TV=I_l$ ：
 
 $$
 Var[z]=\frac{1}{m-1}\Sigma^T \Sigma
 $$
+
+
 可以验证，Z的协方差矩阵是对角的。
 
 
