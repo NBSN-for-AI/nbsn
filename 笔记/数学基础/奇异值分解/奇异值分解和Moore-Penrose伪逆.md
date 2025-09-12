@@ -22,7 +22,7 @@ $$
 $$
 
 
-其中U和V为正交矩阵， $\mathbf{\Sigma}=diag(\sigma_1,\sigma_2,...,\sigma_r)$ 其中$r=rank(\mathbf{\Sigma})$。
+其中U和V为正交矩阵， $\mathbf{\Sigma}=diag(\sigma_1,\sigma_2,...,\sigma_r)$ 其中 $r=rank(\mathbf{\Sigma})$ 。
 
 重点关注 $\mathbf{\Sigma}$ 的作用：向量的前r个坐标伸缩，其他维度均压缩为0，且r最大为 $min(m,n)$ 。
 
