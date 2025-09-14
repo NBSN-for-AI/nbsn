@@ -6,3 +6,4 @@
 - 三值逻辑问题 ---- Wuzg Zhuiy wy* wm*
 - 神经元随机输出与更新 ---- Zhuiy
 - *集异壁研读* ---- [Zhuiy](https://github.com/zhuiyy/Me-with-a-big-big-band-of-crabs)
+- 股价时序的傅里叶分析 ---- Zhuiy
