@@ -23,4 +23,4 @@
     2025/10/15
 
 ### 第四次组会纪要
-- 两道概率趣题 ---- Zhuiy
+- 两道概率趣题([第一道open](https://github.com/NBSN-for-AI/nbsn/issues/10)) ---- Zhuiy
